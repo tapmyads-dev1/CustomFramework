@@ -1,0 +1,435 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-module-flags: -target arm64-apple-ios15.5-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name CustomFramework
+@_exported import CustomFramework
+import Foundation
+import MobileCoreServices
+import Swift
+import _Concurrency
+@_hasMissingDesignatedInitializers open class DefaultAPI {
+  @discardableResult
+  open class func postLoginwithcustomid(loginwithCustomID: CustomFramework.LoginwithCustomID? = nil, apiResponseQueue: Dispatch.DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CustomFramework.LoginWithCustomIDResponse?, _ error: Swift.Error?) -> Swift.Void)) -> CustomFramework.RequestTask
+  open class func postLoginwithcustomidWithRequestBuilder(loginwithCustomID: CustomFramework.LoginwithCustomID? = nil) -> CustomFramework.RequestBuilder<CustomFramework.LoginWithCustomIDResponse>
+  @objc deinit
+}
+public struct APIHelper {
+  public static func rejectNil(_ source: [Swift.String : Any?]) -> [Swift.String : Any]?
+  public static func rejectNilHeaders(_ source: [Swift.String : Any?]) -> [Swift.String : Swift.String]
+  public static func convertBoolToString(_ source: [Swift.String : Any]?) -> [Swift.String : Any]?
+  public static func mapValueToPathItem(_ source: Any) -> Any
+  public static func mapValuesToQueryItems(_ source: [Swift.String : (wrappedValue: Any?, isExplode: Swift.Bool)]) -> [Foundation.URLQueryItem]?
+  public static func mapValuesToQueryItems(_ source: [Swift.String : Any?]) -> [Foundation.URLQueryItem]?
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class OpenISO8601DateFormatter : Foundation.DateFormatter {
+  @objc override dynamic public func date(from string: Swift.String) -> Foundation.Date?
+  @objc deinit
+}
+public struct SDK {
+  public static func doSomeWork()
+}
+public struct NotFound : Swift.Codable, Swift.Hashable {
+  public var statusCode: Swift.Int?
+  public var message: Swift.String?
+  public init(statusCode: Swift.Int? = nil, message: Swift.String? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case statusCode
+    case message
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [CustomFramework.NotFound.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [CustomFramework.NotFound.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: CustomFramework.NotFound, b: CustomFramework.NotFound) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+@available(*, deprecated, renamed: "OpenAPIClientAPI")
+public typealias OpenAPIClient = CustomFramework.OpenAPIClientAPI
+@_hasMissingDesignatedInitializers open class OpenAPIClientAPI {
+  public static var basePath: Swift.String
+  public static var customHeaders: [Swift.String : Swift.String]
+  public static var credential: Foundation.URLCredential?
+  public static var requestBuilderFactory: CustomFramework.RequestBuilderFactory
+  public static var apiResponseQueue: Dispatch.DispatchQueue
+  @objc deinit
+}
+open class RequestBuilder<T> {
+  final public let parameters: [Swift.String : Any]?
+  final public let method: Swift.String
+  final public let URLString: Swift.String
+  final public let requestTask: CustomFramework.RequestTask
+  final public let requiresAuthentication: Swift.Bool
+  public var onProgressReady: ((Foundation.Progress) -> Swift.Void)?
+  required public init(method: Swift.String, URLString: Swift.String, parameters: [Swift.String : Any]?, headers: [Swift.String : Swift.String] = [:], requiresAuthentication: Swift.Bool)
+  open func addHeaders(_ aHeaders: [Swift.String : Swift.String])
+  @discardableResult
+  open func execute(_ apiResponseQueue: Dispatch.DispatchQueue = OpenAPIClientAPI.apiResponseQueue, _ completion: @escaping (_ result: Swift.Result<CustomFramework.Response<T>, CustomFramework.ErrorResponse>) -> Swift.Void) -> CustomFramework.RequestTask
+  public func addHeader(name: Swift.String, value: Swift.String) -> Self
+  open func addCredential() -> Self
+  @objc deinit
+}
+public protocol RequestBuilderFactory {
+  func getNonDecodableBuilder<T>() -> CustomFramework.RequestBuilder<T>.Type
+  func getBuilder<T>() -> CustomFramework.RequestBuilder<T>.Type where T : Swift.Decodable
+}
+public struct LoginWithCustomIDResponseData : Swift.Codable, Swift.Hashable {
+  public var accessToken: Swift.String?
+  public var user: CustomFramework.LoginWithCustomIDResponseDataUser?
+  public var linkedAccounts: [CustomFramework.LoginWithCustomIDResponseDataLinkedAccountsInner]?
+  public init(accessToken: Swift.String? = nil, user: CustomFramework.LoginWithCustomIDResponseDataUser? = nil, linkedAccounts: [CustomFramework.LoginWithCustomIDResponseDataLinkedAccountsInner]? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case accessToken
+    case user
+    case linkedAccounts
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [CustomFramework.LoginWithCustomIDResponseData.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [CustomFramework.LoginWithCustomIDResponseData.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: CustomFramework.LoginWithCustomIDResponseData, b: CustomFramework.LoginWithCustomIDResponseData) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+public protocol URLSessionProtocol {
+  func dataTask(with request: Foundation.URLRequest, completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionDataTask
+}
+extension Foundation.URLSession : CustomFramework.URLSessionProtocol {
+}
+public typealias OpenAPIClientAPIChallengeHandler = ((Foundation.URLSession, Foundation.URLSessionTask, Foundation.URLAuthenticationChallenge) -> (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?))
+@_inheritsConvenienceInitializers open class URLSessionRequestBuilder<T> : CustomFramework.RequestBuilder<T> {
+  public var taskDidReceiveChallenge: CustomFramework.OpenAPIClientAPIChallengeHandler?
+  @available(*, deprecated, message: "Please override execute() method to intercept and handle errors like authorization or retry the request. Check the Wiki for more info. https://github.com/OpenAPITools/openapi-generator/wiki/FAQ#how-do-i-implement-bearer-token-authentication-with-urlsession-on-the-swift-api-client")
+  public var taskCompletionShouldRetry: ((Foundation.Data?, Foundation.URLResponse?, Swift.Error?, @escaping (Swift.Bool) -> Swift.Void) -> Swift.Void)?
+  required public init(method: Swift.String, URLString: Swift.String, parameters: [Swift.String : Any]?, headers: [Swift.String : Swift.String] = [:], requiresAuthentication: Swift.Bool)
+  open func createURLSession() -> CustomFramework.URLSessionProtocol
+  open func contentTypeForFormPart(fileURL: Foundation.URL) -> Swift.String?
+  open func createURLRequest(urlSession: CustomFramework.URLSessionProtocol, method: CustomFramework.HTTPMethod, encoding: CustomFramework.ParameterEncoding, headers: [Swift.String : Swift.String]) throws -> Foundation.URLRequest
+  @discardableResult
+  override open func execute(_ apiResponseQueue: Dispatch.DispatchQueue = OpenAPIClientAPI.apiResponseQueue, _ completion: @escaping (_ result: Swift.Result<CustomFramework.Response<T>, CustomFramework.ErrorResponse>) -> Swift.Void) -> CustomFramework.RequestTask
+  open func buildHeaders() -> [Swift.String : Swift.String]
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class URLSessionDecodableRequestBuilder<T> : CustomFramework.URLSessionRequestBuilder<T> where T : Swift.Decodable {
+  required public init(method: Swift.String, URLString: Swift.String, parameters: [Swift.String : Any]?, headers: [Swift.String : Swift.String] = super, requiresAuthentication: Swift.Bool)
+  @objc deinit
+}
+public enum HTTPMethod : Swift.String {
+  case options
+  case get
+  case head
+  case post
+  case put
+  case patch
+  case delete
+  case trace
+  case connect
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol ParameterEncoding {
+  func encode(_ urlRequest: Foundation.URLRequest, with parameters: [Swift.String : Any]?) throws -> Foundation.URLRequest
+}
+extension CustomFramework.JSONDataEncoding : CustomFramework.ParameterEncoding {
+}
+public struct LoginwithCustomID : Swift.Codable, Swift.Hashable {
+  public var customId: Swift.String?
+  public var token: Swift.String?
+  public var createAccount: Swift.Bool?
+  public var projectID: Swift.String?
+  public init(customId: Swift.String? = nil, token: Swift.String? = nil, createAccount: Swift.Bool? = nil, projectID: Swift.String? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case customId
+    case token
+    case createAccount
+    case projectID
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [CustomFramework.LoginwithCustomID.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [CustomFramework.LoginwithCustomID.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: CustomFramework.LoginwithCustomID, b: CustomFramework.LoginwithCustomID) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct LoginWithCustomIDResponseDataUser : Swift.Codable, Swift.Hashable {
+  public var id: Swift.String?
+  public var displayId: Swift.String?
+  public var displayName: Swift.String?
+  public var createdAt: Swift.String?
+  public init(id: Swift.String? = nil, displayId: Swift.String? = nil, displayName: Swift.String? = nil, createdAt: Swift.String? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case displayId
+    case displayName
+    case createdAt
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [CustomFramework.LoginWithCustomIDResponseDataUser.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [CustomFramework.LoginWithCustomIDResponseDataUser.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: CustomFramework.LoginWithCustomIDResponseDataUser, b: CustomFramework.LoginWithCustomIDResponseDataUser) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers open class CodableHelper {
+  public static var dateFormatter: Foundation.DateFormatter {
+    get
+    set
+  }
+  public static var jsonDecoder: Foundation.JSONDecoder {
+    get
+    set
+  }
+  public static var jsonEncoder: Foundation.JSONEncoder {
+    get
+    set
+  }
+  open class func decode<T>(_ type: T.Type, from data: Foundation.Data) -> Swift.Result<T, Swift.Error> where T : Swift.Decodable
+  open class func encode<T>(_ value: T) -> Swift.Result<Foundation.Data, Swift.Error> where T : Swift.Encodable
+  @objc deinit
+}
+public struct LoginWithCustomIDResponseDataLinkedAccountsInner : Swift.Codable, Swift.Hashable {
+  public var platform: Swift.String
+  public var platformUserId: Swift.String
+  public init(platform: Swift.String, platformUserId: Swift.String)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case platform
+    case platformUserId
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [CustomFramework.LoginWithCustomIDResponseDataLinkedAccountsInner.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [CustomFramework.LoginWithCustomIDResponseDataLinkedAccountsInner.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: CustomFramework.LoginWithCustomIDResponseDataLinkedAccountsInner, b: CustomFramework.LoginWithCustomIDResponseDataLinkedAccountsInner) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+extension Swift.String : Swift.CodingKey {
+  public var stringValue: Swift.String {
+    get
+  }
+  public init?(stringValue: Swift.String)
+  public var intValue: Swift.Int? {
+    get
+  }
+  public init?(intValue: Swift.Int)
+}
+extension Swift.KeyedEncodingContainerProtocol {
+  public mutating func encodeArray<T>(_ values: [T], forKey key: Self.Key) throws where T : Swift.Encodable
+  public mutating func encodeArrayIfPresent<T>(_ values: [T]?, forKey key: Self.Key) throws where T : Swift.Encodable
+  public mutating func encodeMap<T>(_ pairs: [Self.Key : T]) throws where T : Swift.Encodable, Self.Key : Swift.Hashable
+  public mutating func encodeMapIfPresent<T>(_ pairs: [Self.Key : T]?) throws where T : Swift.Encodable, Self.Key : Swift.Hashable
+}
+extension Swift.KeyedDecodingContainerProtocol {
+  public func decodeArray<T>(_ type: T.Type, forKey key: Self.Key) throws -> [T] where T : Swift.Decodable
+  public func decodeArrayIfPresent<T>(_ type: T.Type, forKey key: Self.Key) throws -> [T]? where T : Swift.Decodable
+  public func decodeMap<T>(_ type: T.Type, excludedKeys: Swift.Set<Self.Key>) throws -> [Self.Key : T] where T : Swift.Decodable, Self.Key : Swift.Hashable
+}
+public struct LoginWithCustomIDResponse : Swift.Codable, Swift.Hashable {
+  public var code: Swift.Int?
+  public var status: Swift.String?
+  public var data: CustomFramework.LoginWithCustomIDResponseData?
+  public init(code: Swift.Int? = nil, status: Swift.String? = nil, data: CustomFramework.LoginWithCustomIDResponseData? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case code
+    case status
+    case data
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [CustomFramework.LoginWithCustomIDResponse.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [CustomFramework.LoginWithCustomIDResponse.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: CustomFramework.LoginWithCustomIDResponse, b: CustomFramework.LoginWithCustomIDResponse) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers open class JSONEncodingHelper {
+  open class func encodingParameters<T>(forEncodableObject encodableObj: T?) -> [Swift.String : Any]? where T : Swift.Encodable
+  open class func encodingParameters(forEncodableObject encodableObj: Any?) -> [Swift.String : Any]?
+  @objc deinit
+}
+public struct JSONDataEncoding {
+  public func encode(_ urlRequest: Foundation.URLRequest, with parameters: [Swift.String : Any]?) -> Foundation.URLRequest
+  public static func encodingParameters(jsonData: Foundation.Data?) -> [Swift.String : Any]?
+}
+public enum NullEncodable<Wrapped> : Swift.Hashable where Wrapped : Swift.Hashable {
+  case encodeNothing
+  case encodeNull
+  case encodeValue(Wrapped)
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: CustomFramework.NullEncodable<Wrapped>, b: CustomFramework.NullEncodable<Wrapped>) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension CustomFramework.NullEncodable : Swift.Codable where Wrapped : Swift.Decodable, Wrapped : Swift.Encodable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public enum ErrorResponse : Swift.Error {
+  case error(Swift.Int, Foundation.Data?, Foundation.URLResponse?, Swift.Error)
+}
+public enum DownloadException : Swift.Error {
+  case responseDataMissing
+  case responseFailed
+  case requestMissing
+  case requestMissingPath
+  case requestMissingURL
+  public static func == (a: CustomFramework.DownloadException, b: CustomFramework.DownloadException) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum DecodableRequestBuilderError : Swift.Error {
+  case emptyDataResponse
+  case nilHTTPResponse
+  case unsuccessfulHTTPStatusCode
+  case jsonDecoding(Swift.DecodingError)
+  case generalError(Swift.Error)
+}
+open class Response<T> {
+  final public let statusCode: Swift.Int
+  final public let header: [Swift.String : Swift.String]
+  final public let body: T
+  public init(statusCode: Swift.Int, header: [Swift.String : Swift.String], body: T)
+  convenience public init(response: Foundation.HTTPURLResponse, body: T)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class RequestTask {
+  final public func cancel()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class Configuration {
+  @available(*, unavailable, message: "To set a different date format, use CodableHelper.dateFormatter instead.")
+  public static var dateFormat: Swift.String
+  @objc deinit
+}
+extension CustomFramework.NotFound.CodingKeys : Swift.Equatable {}
+extension CustomFramework.NotFound.CodingKeys : Swift.Hashable {}
+extension CustomFramework.NotFound.CodingKeys : Swift.RawRepresentable {}
+extension CustomFramework.LoginWithCustomIDResponseData.CodingKeys : Swift.Equatable {}
+extension CustomFramework.LoginWithCustomIDResponseData.CodingKeys : Swift.Hashable {}
+extension CustomFramework.LoginWithCustomIDResponseData.CodingKeys : Swift.RawRepresentable {}
+extension CustomFramework.HTTPMethod : Swift.Equatable {}
+extension CustomFramework.HTTPMethod : Swift.Hashable {}
+extension CustomFramework.HTTPMethod : Swift.RawRepresentable {}
+extension CustomFramework.LoginwithCustomID.CodingKeys : Swift.Equatable {}
+extension CustomFramework.LoginwithCustomID.CodingKeys : Swift.Hashable {}
+extension CustomFramework.LoginwithCustomID.CodingKeys : Swift.RawRepresentable {}
+extension CustomFramework.LoginWithCustomIDResponseDataUser.CodingKeys : Swift.Equatable {}
+extension CustomFramework.LoginWithCustomIDResponseDataUser.CodingKeys : Swift.Hashable {}
+extension CustomFramework.LoginWithCustomIDResponseDataUser.CodingKeys : Swift.RawRepresentable {}
+extension CustomFramework.LoginWithCustomIDResponseDataLinkedAccountsInner.CodingKeys : Swift.Equatable {}
+extension CustomFramework.LoginWithCustomIDResponseDataLinkedAccountsInner.CodingKeys : Swift.Hashable {}
+extension CustomFramework.LoginWithCustomIDResponseDataLinkedAccountsInner.CodingKeys : Swift.RawRepresentable {}
+extension CustomFramework.LoginWithCustomIDResponse.CodingKeys : Swift.Equatable {}
+extension CustomFramework.LoginWithCustomIDResponse.CodingKeys : Swift.Hashable {}
+extension CustomFramework.LoginWithCustomIDResponse.CodingKeys : Swift.RawRepresentable {}
+extension CustomFramework.DownloadException : Swift.Equatable {}
+extension CustomFramework.DownloadException : Swift.Hashable {}
